@@ -49,7 +49,11 @@ export const Login = () => {
                 <Button className="col-sm-5 button"  onClick={handleSubmit} variant="primary" type="submit">
                     login
                 </Button>
-            </Form>            
+            </Form>  
+            <Button className="col-sm-5 button"  variant="primary" type='button'>
+                SignUp
+            </Button>  
+            <span>Registrate</span>        
         </div>
     )
 }
