@@ -30,7 +30,7 @@ export const PokemonCard = (props) =>{
                             <ListGroupItem>{move.move.name}</ListGroupItem>
                         })}
                     </ListGroup> */}
-                    {props.button && <Button variant="primary" onClick={handleSavePokemon}> Atrapar </Button>}
+                    {props.button && <Button variant="primary" onClick={handleSavePokemon}> Capturar </Button>}
                 </Card.Body>
             </Card>
 

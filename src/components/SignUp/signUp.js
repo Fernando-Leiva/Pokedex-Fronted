@@ -12,13 +12,13 @@ export const SingUp = () => {
     const handleSubmit = (event) => {
         event.preventDefault()
         console.log('aqui',event)
+        
         if( event.target?.form?.Name?.value && 
             event.target?.form?.Nickname?.value && 
             event.target?.form?.Region?.value &&
             event.target?.form?.Gender?.value &&
             event.target?.form?.Email?.value &&
-            event.target?.form?.Age?.value && 
-            event.target?.form?.trainerClass?.value
+            event.target?.form?.Age?.value 
             ){
                 const user = {
                     name: event.target.form.Name.value,
@@ -27,7 +27,7 @@ export const SingUp = () => {
                     gender:  event.target.form.Gender.value,
                     email:  event.target.form.Email.value,
                     age:  event.target.form.Age.value,
-                    trainerClass:  event.target.form.trainerClass.value
+                    trainerClass:  document.getElementById('trainer').value
                 }
                 fetch('http://localhost:4000/users',{
                     method: 'POST',
@@ -41,49 +41,56 @@ export const SingUp = () => {
             navigate('/homeProfile')
 
             }else{
+                console.log('Invalid')
                 setAlarm(true)
             }
-       
     }
     return(
-        <div className="d-flex justify-content-center mainContainer">
+        <div className=" mainContainer">
             <div className=" row mb-20 d-flex justify-content-center  ">
-                <h1 className="mainContainer">SignUp</h1>
-                <Form className="row ">
-                    <Form.Group className="col-sm-5  " controlId="Name">
-                        <Form.Label>Name</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Name" />
-                    </Form.Group>
-                    <Form.Group className="col-sm-5 " controlId="Nickname">
-                        <Form.Label>Pokemon trainer Nickname</Form.Label>
-                        <Form.Control type="text" placeholder="Pokemon trainer nickname" />
-                    </Form.Group>
-                    <Form.Group className="col-sm-5 " controlId="Region">
-                        <Form.Label>Region of origin</Form.Label>
-                        <Form.Control type="text" placeholder="Region of origin" />
-                    </Form.Group>
-                    <Form.Group className="col-sm-5 " controlId="Gender">
-                        <Form.Label>Gender</Form.Label>
-                        <Form.Control type="text" placeholder="Gender" />
-                    </Form.Group>
-                    <Form.Group className="col-sm-5 " controlId="Age">
-                        <Form.Label>Age</Form.Label>
-                        <Form.Control type="number" placeholder="Age" />
-                    </Form.Group>
-                    <Form.Group className="col-sm-5 " controlId="Email">
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control type="email" placeholder="Email" />
-                    </Form.Group>
-                    <Form.Group className="col-sm-5 " controlId="trainerClass">
-                        <Form.Label>Trainer Class</Form.Label>
-                        <Form.Control type="text" placeholder="Trainer class" />
-                    </Form.Group>
-                    <Form.Group className="col-sm-5 button " controlId="trainerClass">
-                        <Button variant="info"  type="submit"  size="lg" onClick={handleSubmit}>
-                            SignUp
+                <h1 className="h1" >SignUp</h1>
+                <form id="form"> 
+                    <div className="row g-3">
+                        <div className="col-md-6">
+                            <label htmlFor="inputEmail4" className="form-label">Name</label>
+                            <input type="text" id="Name" className="form-control"  />
+                        </div>
+                        <div className="col-md-6">
+                            <label htmlFor="inputEmail4" className="form-label">Nickname</label>
+                            <input type="text" id="Nickname" className="form-control" />
+                        </div>
+                        <div className="col-md-6">
+                            <label htmlFor="inputEmail4" className="form-label">Age</label>
+                            <input type="text" id="Age" className="form-control" />
+                        </div>
+                        <div className="col-md-6">
+                            <label htmlFor="inputEmail4" className="form-label">Gender</label>
+                            <input type="text" id="Gender" className="form-control" />
+                        </div>
+                        <div className="col-md-6">
+                            <label htmlFor="inputEmail4" className="form-label">Email</label>
+                            <input type="text" id="Email" className="form-control" />
+                        </div>
+                    
+                        <div className="col-md-6">
+                            <label htmlFor="inputEmail4" className="form-label">Region</label>
+                            <input type="text" id="Region" className="form-control" />
+                        </div>
+                        <div className="col-md-3">
+                            <label htmlFor="inputEmail4" className="form-label">Trainer</label>
+                            <select id="trainer" className="select">
+                                <option value="battle">Battle</option>
+                                <option value="show">Show</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div className="d-grid gap-2 Button">
+                        <Button variant="info" formTarget="form"  type="submit"  size="lg" onClick={handleSubmit}>
+                                SignUp
                         </Button>
-                    </Form.Group>
-                </Form>
+                    </div>
+                </form>
             </div>
         </div>
     )

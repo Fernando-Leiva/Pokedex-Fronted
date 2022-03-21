@@ -6,8 +6,7 @@
   display: flex;
   margin:0;
   padding: 0;
-  flex-wrap: wrap;
-  gap: 4rem;
+  flex-direction: column;
 }
 .title{
   display: flex;
@@ -19,12 +18,7 @@
   flex: 1;
 }
 
-.fill-height-or-more > div {
-  /* these are the flex items */
-  display: flex;
-  justify-content: center;
- 
-}
+
 .list {
   display: flex;
 }

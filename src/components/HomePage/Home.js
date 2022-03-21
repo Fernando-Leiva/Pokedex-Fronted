@@ -21,24 +21,25 @@ export const Home = () => {
         .catch(error => console.error(error))
     },[])
     return (
-        <div className="container" >
-           <div className='navbar'><PokemonNavbar/> </div>
-           {location.pathname ==='/homeProfile' && <div>
-                {user && <Profile 
-                    name={user.name} 
-                    nickname={user.nickname} 
-                    region={user.region} 
-                    gender={user.gender} 
-                    email={user.email} 
-                    age={user.age} 
-                    trainer={user.trainerClass}
-                />}
+        <PokemonNavbar>
+            <div className="container" >
+            {location.pathname ==='/homeProfile' && <div>
+                    {user && <Profile 
+                        name={user.name} 
+                        nickname={user.nickname} 
+                        region={user.region} 
+                        gender={user.gender} 
+                        email={user.email} 
+                        age={user.age} 
+                        trainer={user.trainerClass}
+                    />}
+                </div>
+                } 
+                <Routes>
+                    <Route exact path='myPokedex' element={< Pokedex />}></Route> 
+                    <Route exact path='generalPage' element={< GeneralPokemonPage />}></Route> 
+                </Routes>
             </div>
-            } 
-            <Routes>
-                <Route exact path='myPokedex' element={< Pokedex />}></Route> 
-                <Route exact path='generalPage' element={< GeneralPokemonPage />}></Route> 
-            </Routes>
-        </div>
+        </PokemonNavbar>
     )
 }

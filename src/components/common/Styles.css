@@ -2,3 +2,6 @@
     display: flex;
     flex: 1;
 }
+.children{
+    margin-top: 80px;
+}

@@ -44,18 +44,18 @@ export const Login = () => {
             {modal && <Modal title={' 🚨 Verifique su usuario o contraseñad 🚨'} body={'Ha ocurrido un error con sus credenciales'} handleClose={()=>setModal(false)} /> }
             <Form id="form" >
                 <Form.Group  controlId="Email" >
-                    <Form.Label>Email address</Form.Label>
+                    <Form.Label className="bolded">Email address</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" />
                 </Form.Group>
                 <Form.Group  controlId="formBasicPassword">
-                    <Form.Label>Password</Form.Label>
+                    <Form.Label className="bolded">Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
             </Form>  
-            <Button form="form" onClick={handleSubmit} variant="primary" type="submit">
-                    login
+            <Button form="form" className="button" onClick={handleSubmit} variant="primary" type="submit">
+                    Login
             </Button>
-            <Button  variant="primary" type='button' href="/signUp">
+            <Button  variant="primary" className="button" type='button' href="/signUp">
                 SignUp
             </Button>  
           

@@ -4,9 +4,23 @@
     display: flex;
     flex: 1;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
     padding: 350px;
+    background-image: url('pokemonBackground.png');
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: center;
+
 }
+.bolded{
+    display: flex;
+    justify-content: center;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+    color:black;
+}
+
 
 .form{
     position: relative;

@@ -17,7 +17,6 @@ function App() {
     <Router>
       <div >
         <div className='fill-height-or-more'>  
-      {/*     {localStorage.getItem('user') ? <div className='navbar'><PokemonNavbar/> </div> : <></>}   */}
           <Routes >
               <Route exact path='/app' element={< Login />}></Route> 
               <Route exact path='/signUp' element={< SingUp />}></Route>

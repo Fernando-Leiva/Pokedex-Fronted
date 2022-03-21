@@ -1,6 +1,7 @@
 import React from "react"
 import axios from 'axios'
 import { PokemonCard } from "../common/PokemonCard";
+import './Styles.css'
 
 
 export const Pokedex = () => {
@@ -18,7 +19,7 @@ export const Pokedex = () => {
     return(
         <div className="container">  
             {myPokemons ? 
-                myPokemons.map( pokemon => <div key={pokemon.name}><PokemonCard pokeName={pokemon.name} gender={pokemon.gender} image={pokemon.picture} button={false} /></div>):<></>
+                myPokemons.map( pokemon => <div key={pokemon.name}><PokemonCard pokeName={pokemon.name} gender={pokemon.gender} image={pokemon.picture} button={false} /></div>):<h1 className="h1"> No posés ningún pokemon aun</h1>
             }                              
         </div>
     )

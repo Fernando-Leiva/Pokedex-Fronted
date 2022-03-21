@@ -1,16 +1,17 @@
 .container{
     display: flex;
     flex: 1;
-    justify-content: center;
+
 }
 .divAvatar{
     display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+    align-items: center;
+    margin-top: 40px;
 }
 .h4{
     display: flex;
-    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
 }
 .avatar {
     vertical-align: middle;
