@@ -3,18 +3,24 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import './Styles.css'
 import { Modal } from "../Modal/modal"
+import { useNavigate } from 'react-router-dom';
+
+
 
 export const Login = () => {
     const [modal, setModal] = React.useState(false)
-
+    const [redirect,setRedirect] = React.useState(false)
+    const navigate = useNavigate()
+    
     const handleSubmit =  async (e) => {
         e.preventDefault()
-        console.log("Hola",e)
-        if(e.target?.form?.Email?.value && e.target?.form?.Email?.value){
+        console.log(e)
+        if(e.target.form.Email.value !== '' && e.target.form.formBasicPassword.value !== ''){
             const user = {
                 email:  e.target.form.Email.value,
                 password: e.target.form.formBasicPassword.value
             }
+            window.localStorage.setItem('user',e.target.form.Email.value)
             const response = await fetch('http://localhost:4000/login',{
                     method: 'POST',
                     headers: {
@@ -25,35 +31,34 @@ export const Login = () => {
                 )
             const session = await response.json()
             console.log(session)
-            if(session.status === 'error') setModal(true)
+            if(session.status === 'ok') {
+                navigate('/homeProfile') 
+            }
             // if session.status === 'ok' redirect to home
+        }else{
+            setModal(true)
         }
     }
-
     return(
-        <div>
-            <div>Bienvenido</div>
+        <div className="login">
             {modal && <Modal title={' 🚨 Verifique su usuario o contraseñad 🚨'} body={'Ha ocurrido un error con sus credenciales'} handleClose={()=>setModal(false)} /> }
-
-            <Form className="form ">
-                <Form.Group className="col-sm-5 " controlId="Email" >
+            <Form id="form" >
+                <Form.Group  controlId="Email" >
                     <Form.Label>Email address</Form.Label>
                     <Form.Control type="email" placeholder="Enter email" />
                 </Form.Group>
-
-                <Form.Group className="col-sm-5 " controlId="formBasicPassword">
+                <Form.Group  controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" />
                 </Form.Group>
-
-                <Button className="col-sm-5 button"  onClick={handleSubmit} variant="primary" type="submit">
-                    login
-                </Button>
             </Form>  
-            <Button className="col-sm-5 button"  variant="primary" type='button'>
+            <Button form="form" onClick={handleSubmit} variant="primary" type="submit">
+                    login
+            </Button>
+            <Button  variant="primary" type='button' href="/signUp">
                 SignUp
             </Button>  
-            <span>Registrate</span>        
+          
         </div>
     )
 }

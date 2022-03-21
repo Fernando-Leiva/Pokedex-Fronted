@@ -3,9 +3,12 @@ import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Alert from 'react-bootstrap/Alert'
 import './Styles.css'
+import { useNavigate } from 'react-router-dom';
+
 
 export const SingUp = () => {
     const [alarm,setAlarm] = React.useState(false)
+    const navigate = useNavigate()
     const handleSubmit = (event) => {
         event.preventDefault()
         console.log('aqui',event)
@@ -34,15 +37,18 @@ export const SingUp = () => {
                     },
                     body: JSON.stringify(user)}
                 )
+            window.localStorage.setItem('user',event.target.form.Email.value)
+            navigate('/homeProfile')
+
             }else{
                 setAlarm(true)
             }
        
     }
     return(
-        <div className="d-flex justify-content-center">
+        <div className="d-flex justify-content-center mainContainer">
             <div className=" row mb-20 d-flex justify-content-center  ">
-                <h1 className="d-flex justify-content-center">SignUp</h1>
+                <h1 className="mainContainer">SignUp</h1>
                 <Form className="row ">
                     <Form.Group className="col-sm-5  " controlId="Name">
                         <Form.Label>Name</Form.Label>
@@ -73,11 +79,10 @@ export const SingUp = () => {
                         <Form.Control type="text" placeholder="Trainer class" />
                     </Form.Group>
                     <Form.Group className="col-sm-5 button " controlId="trainerClass">
-                        <Button variant="info" type="submit"  size="lg" onClick={handleSubmit}>
+                        <Button variant="info"  type="submit"  size="lg" onClick={handleSubmit}>
                             SignUp
                         </Button>
                     </Form.Group>
-      
                 </Form>
             </div>
         </div>

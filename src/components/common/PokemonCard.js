@@ -3,11 +3,20 @@ import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup'
 import ListGroupItem from 'react-bootstrap/ListGroupItem'
 import Button from 'react-bootstrap/Button'
+import axios from 'axios'
 
 export const PokemonCard = (props) =>{
-    const handleSavePokemon = (e) => {
+    const handleSavePokemon = async (e) => {
         e.preventDefault()
-    
+        try {      
+           const result = await axios.put('http://localhost:4000/pokemon',{
+               email: window.localStorage.getItem('user') || '',
+               name : props.pokeName
+           })
+           console.log(result)   
+        } catch (error) {
+            console.error(error)
+        }
     }
     return(
         <React.Fragment>
@@ -21,7 +30,7 @@ export const PokemonCard = (props) =>{
                             <ListGroupItem>{move.move.name}</ListGroupItem>
                         })}
                     </ListGroup> */}
-                    {props.button && <Button variant="primary" onClick={handleSavePokemon}> Especificaciones </Button>}
+                    {props.button && <Button variant="primary" onClick={handleSavePokemon}> Atrapar </Button>}
                 </Card.Body>
             </Card>
 

@@ -1,7 +1,38 @@
 .App {
-  text-align: center;
+  display: flex;
+  background-color: #61dafb;
+}
+.fill-height-or-more {
+  display: flex;
+  margin:0;
+  padding: 0;
+  flex-wrap: wrap;
+  gap: 4rem;
+}
+.title{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 5px; 
+}
+.navbar{
+  display: flex;
+  flex: 1;
 }
 
+.fill-height-or-more > div {
+  /* these are the flex items */
+  display: flex;
+  justify-content: center;
+ 
+}
+.list {
+  display: flex;
+}
+.box {
+  width: 100px;  
+  height: 100px;
+  margin: 8px ; 
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
