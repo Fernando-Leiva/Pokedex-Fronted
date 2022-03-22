@@ -1,11 +1,12 @@
 import React from "react"
 import {Route, Routes , useLocation} from 'react-router-dom'
-import { PokemonNavbar } from '../common/PokemonNavbar';
+import  PokemonNavbar  from '../common/PokemonNavbar';
 import axios from 'axios'
-import { GeneralPokemonPage } from '../GeneralPokemonPage/PokemonPage';
+import  GeneralPokemonPage  from '../GeneralPokemonPage/PokemonPage';
 import { Pokedex } from '../MyPokedex/Pokedex';
 import './Styles.css'
 import { Profile } from "../Profile/Profile";
+import Button from 'react-bootstrap/Button'
 
 export const Home = () => {
     const location = useLocation();
@@ -40,6 +41,7 @@ export const Home = () => {
                     <Route exact path='generalPage' element={< GeneralPokemonPage />}></Route> 
                 </Routes>
             </div>
+
         </PokemonNavbar>
     )
 }

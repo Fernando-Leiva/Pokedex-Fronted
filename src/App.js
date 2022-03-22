@@ -9,22 +9,26 @@ import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
 import { Home } from './components/HomePage/Home';
 import { Pokedex } from './components/MyPokedex/Pokedex';
 import { GeneralPokemonPage } from './components/GeneralPokemonPage/PokemonPage';
+import { Provider } from 'react-redux';
+import { store } from './redux/store';
 
 
 
 function App() {
   return (
-    <Router>
-      <div >
-        <div className='fill-height-or-more'>  
-          <Routes >
-              <Route exact path='/app' element={< Login />}></Route> 
-              <Route exact path='/signUp' element={< SingUp />}></Route>
-              {localStorage.getItem('user') ? <Route exact path='/homeProfile/*' element ={<Home/>}/> : <></>}
-          </Routes>
+    <Provider store={store}>
+      <Router>
+        <div >
+          <div className='fill-height-or-more'>  
+            <Routes >
+                <Route exact path='/app' element={< Login />}></Route> 
+                <Route exact path='/signUp' element={< SingUp />}></Route>
+                {localStorage.getItem('user') ? <Route exact path='/homeProfile/*' element ={<Home/>}/> : <></>}
+            </Routes>
+          </div>
         </div>
-      </div>
-    </Router>
+      </Router>
+    </Provider>
   );
 }
 

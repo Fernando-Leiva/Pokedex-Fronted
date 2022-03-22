@@ -8,28 +8,24 @@ import axios from 'axios'
 export const PokemonCard = (props) =>{
     const handleSavePokemon = async (e) => {
         e.preventDefault()
+        delete props.pokemon.moves
+        console.log(props.pokemon)
         try {      
            const result = await axios.put('http://localhost:4000/pokemon',{
                email: window.localStorage.getItem('user') || '',
-               name : props.pokeName
-           })
-           console.log(result)   
+               pokemon : props.pokemon
+           })  
         } catch (error) {
             console.error(error)
-        }
+        } 
     }
     return(
         <React.Fragment>
             <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={props.image} />
+                <Card.Img variant="top" src={props.pokemon.image} />
                 <Card.Body>
-                    <Card.Title>{props.pokeName}</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">{props.gender}</Card.Subtitle>
-                    {/* <ListGroup className="list-group-flush">
-                        {props.moves.map(move => {
-                            <ListGroupItem>{move.move.name}</ListGroupItem>
-                        })}
-                    </ListGroup> */}
+                    <Card.Title>{props.pokemon.pokeName}</Card.Title>
+                    <Card.Subtitle className="mb-2 text-muted">{props.pokemon.gender}</Card.Subtitle>
                     {props.button && <Button variant="primary" onClick={handleSavePokemon}> Capturar </Button>}
                 </Card.Body>
             </Card>

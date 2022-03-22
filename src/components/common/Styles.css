@@ -5,3 +5,14 @@
 .children{
     margin-top: 80px;
 }
+.pagination{
+    display: flex;
+    padding-left: 240px;
+    align-items: center;
+    justify-content: space-between;
+}
+.closeSession{
+    display: flex;
+    align-items: center;
+    padding-left: 520px ;
+}

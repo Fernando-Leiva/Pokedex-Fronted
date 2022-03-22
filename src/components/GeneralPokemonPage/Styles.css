@@ -12,3 +12,7 @@
 .title{
     margin-bottom: 5px;
 }
+.spinner{
+    display: flex;
+    justify-content: center;
+}

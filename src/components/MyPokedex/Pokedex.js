@@ -12,6 +12,7 @@ export const Pokedex = () => {
             email:window.localStorage.getItem('user')||'test2@test2.com'
         })
         .then(result => {
+            console.log("myPokedex",result)
             setMyPokemons(result.data[0].pokemons)
         })
         .catch(error => console.error(error))
@@ -19,7 +20,7 @@ export const Pokedex = () => {
     return(
         <div className="container">  
             {myPokemons ? 
-                myPokemons.map( pokemon => <div key={pokemon.name}><PokemonCard pokeName={pokemon.name} gender={pokemon.gender} image={pokemon.picture} button={false} /></div>):<h1 className="h1"> No posés ningún pokemon aun</h1>
+                myPokemons.map( pokemon => <div key={pokemon.name}><PokemonCard pokemon={pokemon} button={false} /></div>):<h1 className="h1"> No posés ningún pokemon aun</h1>
             }                              
         </div>
     )
