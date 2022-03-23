@@ -1,7 +1,5 @@
 import React from "react"
 import './Styles.css'
-import image from './pokemon_anime.png'
-import fondo from './fondo.jpeg'
 import { useLocation } from 'react-router-dom';
 import Button from 'react-bootstrap/Button'
 

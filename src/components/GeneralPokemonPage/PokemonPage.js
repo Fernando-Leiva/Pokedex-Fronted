@@ -6,24 +6,26 @@ import { fetchPokemons } from "../../helpers/Pokemon";
 import { SpinnerDotted } from 'spinners-react';
 import Button from 'react-bootstrap/Button'
 import { connect } from 'react-redux';
-import { incrementLimit,incrementOffset } from "../../redux/action";
+import { incrementLimit,incrementOffset, myToggle } from "../../redux/action";
 
 
 const GeneralPokemonPage = (props) => {
     const [pokemons,setPokemons] = React.useState();
     const [loader, setLoader] = React.useState(true);
+    console.log(props)
      React.useEffect(()=>{
         fetchPokemons(props.offset,props.limit)
         .then(result=>{
             setPokemons(result)
+            props.myToggle(true)
             setLoader(false)
         })
         .catch(e=>console.error(e))
-     },[props.offset,props.limit]) 
+     },[props.offset,props.limit,props.toggle]) 
     return(
         <div className="container">  
            
-            {pokemons ? 
+            {pokemons && props.toggle ? 
                 pokemons.map( pokemon => {
                     return(
                         <div className="item" key={pokemon.name}>
@@ -41,6 +43,6 @@ const GeneralPokemonPage = (props) => {
 const mapStateToPros = state =>{
     return state
 }
-const mapDispatchToProps = { incrementLimit, incrementOffset }
+const mapDispatchToProps = { incrementLimit, incrementOffset, myToggle }
 
 export default connect(mapStateToPros,mapDispatchToProps)(GeneralPokemonPage)

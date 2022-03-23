@@ -31,6 +31,13 @@ export const decrementLimit = () => (dispatch)=>{
         console.error('An error ocurred',error)
     }
 }
+export const myToggle = (value) => (dispatch)=>{
+    try {
+        dispatch({type:'TOGGLE',payload:value})
+    } catch (error) {   
+        console.error('An error ocurred',error)
+    }
+}
 export const clean = () => (dispatch)=>{
     try {
         dispatch({type:'CLEAN'})

@@ -7,7 +7,7 @@ import pokebola from './Pokebola.png'
 import { useNavigate,useLocation } from 'react-router-dom';
 import './Styles.css'
 import { connect } from 'react-redux';
-import { incrementLimit,incrementOffset,decrementOffset,decrementLimit,clean } from "../../redux/action"
+import { incrementLimit,incrementOffset,decrementOffset,decrementLimit,clean,myToggle } from "../../redux/action"
 
 const PokemonNavbar = (props) => {
     const navigate = useNavigate();
@@ -20,11 +20,13 @@ const PokemonNavbar = (props) => {
     }
     const handleNext = (e) => {
         e.preventDefault()
+        props.myToggle(false)
         props.incrementOffset()
         props.incrementLimit()
     }
     const handlePrevious = (e) =>{
         e.preventDefault()
+        props.myToggle(false)
         props.decrementOffset()
         props.decrementLimit()
 
@@ -68,6 +70,6 @@ const PokemonNavbar = (props) => {
 const mapStateToPros = state => {
     return state
   }
-  const mapDispatchToProps = { incrementLimit, incrementOffset, decrementOffset, decrementLimit, clean }
+  const mapDispatchToProps = { incrementLimit, incrementOffset, decrementOffset, decrementLimit, clean, myToggle}
 
 export default connect(mapStateToPros,mapDispatchToProps)(PokemonNavbar)

@@ -1,6 +1,7 @@
 const initState = {
     offset:0,
-    limit:100
+    limit:100,
+    toggle:false
 }
 
 
@@ -27,6 +28,11 @@ export const countReducer = function (state=initState, action) {
                 ...state,
                 limit:state.limit-100
             };
+        case "TOGGLE":
+            return{
+                ...state,
+                toggle:action.payload
+            }
         case "CLEAN":
          return{
              ...initState
