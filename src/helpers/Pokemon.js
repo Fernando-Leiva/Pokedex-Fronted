@@ -11,7 +11,10 @@ const formatPokemon = (pokemon) => {
         name : pokemon.data.name,
         image: pokemon.data.sprites.front_shiny,
         gender: gender[Math.round(Math.random())],
-        moves: pokemon.data.moves
+        moves: pokemon.data.moves,
+        types: pokemon.data.types,
+        height: pokemon.data.height,
+        weight:pokemon.data.weight
     }
     return formatPokemon
 } 
@@ -43,7 +46,3 @@ export const fetchPokemons = async (start=0, end=100 ) => {
    return page
 }
 
-export const savePokemon = () => {
-    //axios.post()
-    console.log('Not done yet')
-}

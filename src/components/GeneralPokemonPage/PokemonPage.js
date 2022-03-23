@@ -15,7 +15,6 @@ const GeneralPokemonPage = (props) => {
      React.useEffect(()=>{
         fetchPokemons(props.offset,props.limit)
         .then(result=>{
-            console.log(result)
             setPokemons(result)
             setLoader(false)
         })

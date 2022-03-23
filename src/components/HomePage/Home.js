@@ -7,6 +7,7 @@ import { Pokedex } from '../MyPokedex/Pokedex';
 import './Styles.css'
 import { Profile } from "../Profile/Profile";
 import Button from 'react-bootstrap/Button'
+import { PokemonDetail } from "../DetailPokemon/PokemonDetail";
 
 export const Home = () => {
     const location = useLocation();
@@ -39,6 +40,7 @@ export const Home = () => {
                 <Routes>
                     <Route exact path='myPokedex' element={< Pokedex />}></Route> 
                     <Route exact path='generalPage' element={< GeneralPokemonPage />}></Route> 
+                    <Route exact path='pokemonDetail' element={< PokemonDetail />}></Route> 
                 </Routes>
             </div>
 
