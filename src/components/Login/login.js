@@ -9,7 +9,6 @@ import { useNavigate } from 'react-router-dom';
 
 export const Login = () => {
     const [modal, setModal] = React.useState(false)
-    const [redirect,setRedirect] = React.useState(false)
     const navigate = useNavigate()
     
     const handleSubmit =  async (e) => {
@@ -30,7 +29,6 @@ export const Login = () => {
                     body: JSON.stringify(user)}
                 )
             const session = await response.json()
-            console.log(session)
             if(session.status === 'ok') {
                 navigate('/homeProfile') 
             }

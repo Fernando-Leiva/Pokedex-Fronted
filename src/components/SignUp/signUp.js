@@ -11,8 +11,6 @@ export const SingUp = () => {
     const navigate = useNavigate()
     const handleSubmit = (event) => {
         event.preventDefault()
-        console.log('aqui',event)
-        
         if( event.target?.form?.Name?.value && 
             event.target?.form?.Nickname?.value && 
             event.target?.form?.Region?.value &&
@@ -76,9 +74,13 @@ export const SingUp = () => {
                             <label htmlFor="inputEmail4" className="form-label">Region</label>
                             <input type="text" id="Region" className="form-control" />
                         </div>
+                        <div className="col-md-6">
+                            <label htmlFor="inputEmail4" className="form-label">Password</label>
+                            <input type="password" id="password" className="form-control" />
+                        </div>
                         <div className="col-md-3">
                             <label htmlFor="inputEmail4" className="form-label">Trainer</label>
-                            <select id="trainer" className="select">
+                            <select id="trainer" className="selector select">
                                 <option value="battle">Battle</option>
                                 <option value="show">Show</option>
                             </select>
