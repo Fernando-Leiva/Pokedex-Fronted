@@ -37,6 +37,7 @@ export const SingUp = () => {
                 )
             window.localStorage.setItem('user',event.target.form.Email.value)
             navigate('/homeProfile')
+            window.location.reload()
 
             }else{
                 console.log('Invalid')

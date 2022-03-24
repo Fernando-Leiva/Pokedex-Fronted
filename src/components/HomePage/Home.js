@@ -3,7 +3,7 @@ import {Route, Routes , useLocation} from 'react-router-dom'
 import  PokemonNavbar  from '../common/PokemonNavbar';
 import axios from 'axios'
 import  GeneralPokemonPage  from '../GeneralPokemonPage/PokemonPage';
-import { Pokedex } from '../MyPokedex/Pokedex';
+import  Pokedex  from '../MyPokedex/Pokedex';
 import './Styles.css'
 import { Profile } from "../Profile/Profile";
 import Button from 'react-bootstrap/Button'

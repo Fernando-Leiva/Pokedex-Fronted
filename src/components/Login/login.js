@@ -31,6 +31,7 @@ export const Login = () => {
             const session = await response.json()
             if(session.status === 'ok') {
                 navigate('/homeProfile') 
+                window.location.reload()
             }
             // if session.status === 'ok' redirect to home
         }else{

@@ -21,7 +21,7 @@ function App() {
         <div >
           <div className='fill-height-or-more'>  
             <Routes >
-                <Route exact path='/app' element={< Login />}></Route> 
+                <Route exact path='/' element={< Login />}></Route> 
                 <Route exact path='/signUp' element={< SingUp />}></Route>
                 {localStorage.getItem('user') ? <Route exact path='/homeProfile/*' element ={<Home/>}/> : <></>}
             </Routes>

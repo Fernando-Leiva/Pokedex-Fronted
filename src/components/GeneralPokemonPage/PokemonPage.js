@@ -34,7 +34,7 @@ const GeneralPokemonPage = (props) => {
                     )
                 }
                 )
-                : <div className="spinner"> <SpinnerDotted  thickness={100} enabled={loader} size={130} color='#25AEB8'/> </div>
+                : <div className="spinner"> <SpinnerDotted  thickness={100} enabled={!props.toggle} size={130} color='#25AEB8'/> </div>
             }                              
         </div>
     )

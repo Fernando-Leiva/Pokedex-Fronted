@@ -9,6 +9,7 @@ import './Styles.css'
 import { connect } from 'react-redux';
 import { incrementLimit,incrementOffset,decrementOffset,decrementLimit,clean,myToggle } from "../../redux/action"
 
+
 const PokemonNavbar = (props) => {
     const navigate = useNavigate();
     const location = useLocation();
@@ -16,7 +17,8 @@ const PokemonNavbar = (props) => {
         e.preventDefault()
         window.localStorage.removeItem('user')
         props.clean()
-        navigate('/app')
+        navigate('/')
+        window.location.reload()
     }
     const handleNext = (e) => {
         e.preventDefault()
