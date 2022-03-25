@@ -11,8 +11,7 @@ export const PokemonCard = (props) =>{
     const handleSavePokemon = async (e) => {
         e.preventDefault()
         delete props.pokemon.moves
-        //console.log(props.pokemon)
-        try {      
+        try { 
            const result = await axios.put('http://localhost:4000/pokemon',{
                email: window.localStorage.getItem('user') || '',
                pokemon : props.pokemon
@@ -27,15 +26,17 @@ export const PokemonCard = (props) =>{
     } 
     return(
         <React.Fragment>
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" src={props.pokemon.image} />
-                <Card.Body>
-                    <Card.Title>{props.pokemon.name}</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">{props.pokemon.gender}</Card.Subtitle>
-                    {props.button && <Button variant="primary" onClick={handleSavePokemon}> Get it </Button>}
-                    {'      '}
-                    {props.button && <Button variant="warning" onClick={handleDetails}> Details </Button>}
-                </Card.Body>
+            <Card className="mainCard " style={{ width: '15rem', boxShadow: `7px 1px 10px ${props.pokemon.color ?? 'blue'}`  }}>
+                <Card.Img className="cardImg" variant="top" src={props.pokemon.image} />
+                <div className="cardBody">
+                    <Card.Body>
+                        <Card.Title>{props.pokemon.name}</Card.Title>
+                        <Card.Subtitle className="mb-2 text-muted">{props.pokemon.gender}</Card.Subtitle>
+                        {props.button && <Button variant="primary" onClick={handleSavePokemon}> Get it </Button>}
+                        {'      '}
+                        {props.button && <Button variant="warning" onClick={handleDetails}> Details </Button>}
+                    </Card.Body>
+                </div>
             </Card>
 
         </React.Fragment>

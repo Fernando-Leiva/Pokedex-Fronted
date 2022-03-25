@@ -4,11 +4,8 @@ import React from 'react'
 import { SingUp } from './components/SignUp/signUp';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Login } from './components/Login/login';
-import { PokemonNavbar } from './components/common/PokemonNavbar';
 import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
 import { Home } from './components/HomePage/Home';
-import { Pokedex } from './components/MyPokedex/Pokedex';
-import { GeneralPokemonPage } from './components/GeneralPokemonPage/PokemonPage';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 
